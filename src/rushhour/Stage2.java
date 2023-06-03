@@ -429,7 +429,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
         }
 
 
-        if (newCraft1X >= 750 && newCraft1Y + aircraft1.getHeight(null) <= getHeight()) {
+        if (newCraft1Y >= 75 && newCraft1Y + aircraft1.getHeight(null) <= getHeight()) {
         	if (((newCraft1X != train1x && newCraft1X+150 !=train1x)|| newCraft1Y != train1y )&&
                 	((newCraft1X != play1x && newCraft1X+150 !=play1x) || (newCraft1Y != play1y && newCraft1Y != play1y+150))&&
                 		((newCraft1X != ladder1x && newCraft1X+150!=ladder1x) || (newCraft1Y != ladder1y && newCraft1Y != ladder1y+150))&&
@@ -439,7 +439,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
                 aircraft1y = newCraft1Y;
             }
         }
-        repaint();
+        
 
         repaint();
     }

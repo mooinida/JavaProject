@@ -18,6 +18,8 @@ public class visual3 extends JFrame{
 	public Image doll1 = new ImageIcon(Stage1.class.getResource("/img/액션가면.png")).getImage();
 	public Image aircraft1 = new ImageIcon(Stage1.class.getResource("/img/aircraft.png")).getImage();
 	public Image bike1 = new ImageIcon(Stage1.class.getResource("/img/bike.png")).getImage();
+	public Image rock1 = new ImageIcon(Stage1.class.getResource("/img/맹구.png")).getImage();
+	public Image insect1 = new ImageIcon(Stage1.class.getResource("/img/애벌레.png")).getImage();
 	
 	public int horseX = 0,horseY = 675;
     public int bus1x = 450, bus1y = 675;
@@ -29,6 +31,8 @@ public class visual3 extends JFrame{
     public int doll1x=300,doll1y=375;
     public int aircraft1x=750,aircraft1y=75;
     public int bike1x=750,bike1y=225;
+    public int rock1x=900,rock1y=225;
+    public int insect1x=600,insect1y=525;
 	public visual3() {
 		// TODO Auto-generated constructor stub
 	}

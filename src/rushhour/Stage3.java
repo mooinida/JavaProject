@@ -39,11 +39,13 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
     private boolean isDoll1Cliked = false;
     private boolean isCraft1Cliked = false;
     private boolean isBike1Cliked = false;
+    private boolean isInsect1Cliked = false;
+    private boolean isRock1Cliked = false;
     
     private long startTime;
     private long endTime;
     private JPanel panel;
-    howtoplay2 ha=new howtoplay2();
+    howtoplay3 ha=new howtoplay3();
     int cnt=0;
    // effect run=new effect("run");
     bgm music;
@@ -93,6 +95,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
         g.drawImage(ladder1, ladder1x, ladder1y, null);
         g.drawImage(aircraft1, aircraft1x, aircraft1y, null);
         g.drawImage(bike1, bike1x, bike1y, null);
+        g.drawImage(rock1, rock1x, rock1y, null);
+        g.drawImage(insect1, insect1x, insect1y, null);
     }
 
     public void moveHorse(int dx, int dy) {
@@ -110,7 +114,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	        						(newHorseX!=play1x||(newHorseY!=play1y&&newHorseY!=play1y+150))&&
 	        							(newHorseX!=ladder1x||(newHorseY!=ladder1y&&newHorseY!=ladder1y+150))&&
 	        								(newHorseX!=doll1x||(newHorseY!=doll1y&&newHorseY!=doll1y+150))&&
-	        									(newHorseX!=bike1x||(newHorseY!=bike1y&&newHorseY!=bike1y+150)))
+	        									(newHorseX!=rock1x||(newHorseY!=rock1y&&newHorseY!=rock1y+150))&&
+	        										((newHorseX!=insect1x && newHorseX!=insect1x+150)||newHorseY!=insect1y))
                 {
             
                 horseX = newHorseX;
@@ -126,7 +131,9 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	        						(newHorseX!=play1x||(newHorseY!=play1y&&newHorseY!=play1y+150))&&
 	        							(newHorseX!=ladder1x||(newHorseY!=ladder1y&&newHorseY!=ladder1y+150))&&
 	        								(newHorseX!=doll1x||(newHorseY!=doll1y&&newHorseY!=doll1y+150))&&
-	        									(newHorseX!=bike1x||(newHorseY!=bike1y&&newHorseY!=bike1y+150)))
+	        									(newHorseX!=bike1x||(newHorseY!=bike1y&&newHorseY!=bike1y+150))&&
+	        										(newHorseX!=rock1x||(newHorseY!=rock1y&&newHorseY!=rock1y+150))&&
+	        											((newHorseX!=insect1x && newHorseX!=insect1x+150)||newHorseY!=insect1y))
                {
             
                 horseY = newHorseY;
@@ -196,7 +203,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 		((newBus1X != ladder1x && newBus1X+150!=ladder1x) || (newBus1Y != ladder1y && newBus1Y != ladder1y+150))&&
                 			((newBus1X != doll1x && newBus1X+150!=doll1x) || (newBus1Y != doll1y && newBus1Y != doll1y+150))&&
                 				((newBus1X != bike1x && newBus1X+150!=bike1x) || (newBus1Y != bike1y && newBus1Y != bike1y+150))&&
-                					((newBus1X != horseX && newBus1X+150 !=horseX)|| newBus1Y != horseY )){
+                					((newBus1X != rock1x && newBus1X+150!=rock1x) || (newBus1Y != bike1y && newBus1Y != bike1y+150))&&
+                						((newBus1X != horseX && newBus1X+150 !=horseX)|| newBus1Y != horseY )){
                 bus1x = newBus1X;
             }
         }
@@ -208,7 +216,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 		((newBus1X != ladder1x && newBus1X+150!=ladder1x) || (newBus1Y != ladder1y && newBus1Y != ladder1y+150))&&
                 			((newBus1X != doll1x && newBus1X+150!=doll1x) || (newBus1Y != doll1y && newBus1Y != doll1y+150))&&
                 				((newBus1X != bike1x && newBus1X+150!=bike1x) || (newBus1Y != bike1y && newBus1Y != bike1y+150))&&
-                					((newBus1X != horseX && newBus1X+150 !=horseX)|| newBus1Y != horseY )){
+                					((newBus1X != rock1x && newBus1X+150!=rock1x) || (newBus1Y != bike1y && newBus1Y != bike1y+150))&&
+                						((newBus1X != horseX && newBus1X+150 !=horseX)|| newBus1Y != horseY )){
                 bus1y = newBus1Y;
             }
         }
@@ -228,7 +237,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	        						(newTrain1X!=play1x||(newTrain1Y!=play1y&&newTrain1Y!=play1y+150))&&
 	        							(newTrain1X!=ladder1x||(newTrain1Y!=ladder1y&&newTrain1Y!=ladder1y+150))&&
 	        								(newTrain1X!=doll1x||(newTrain1Y!=doll1y&&newTrain1Y!=doll1y+150))&&
-	        									(newTrain1X!=bike1x||(newTrain1Y!=bike1y&&newTrain1Y!=bike1y+150)))
+	        									(newTrain1X!=bike1x||(newTrain1Y!=bike1y&&newTrain1Y!=bike1y+150))&&
+	        				        				((newTrain1X!=insect1x && newTrain1X!=insect1x+150)||newTrain1Y!=insect1y))
                 {
                 train1x = newTrain1X;
             }
@@ -243,7 +253,9 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	        						(newTrain1X!=play1x||(newTrain1Y!=play1y&&newTrain1Y!=play1y+150))&&
 	        							(newTrain1X!=ladder1x||(newTrain1Y!=ladder1y&&newTrain1Y!=ladder1y+150))&&
 	        								(newTrain1X!=doll1x||(newTrain1Y!=doll1y&&newTrain1Y!=doll1y+150))&&
-	        									(newTrain1X!=bike1x||(newTrain1Y!=bike1y&&newTrain1Y!=bike1y+150)))
+	        									(newTrain1X!=bike1x||(newTrain1Y!=bike1y&&newTrain1Y!=bike1y+150))&&
+	        										(newTrain1X!=rock1x||(newTrain1Y!=rock1y&&newTrain1Y!=rock1y+150))&&
+	        				        					((newTrain1X!=insect1x && newTrain1X!=insect1x+150)||newTrain1Y!=insect1y))
                 {
                 train1y = newTrain1Y;
             }
@@ -262,7 +274,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
         				((newAirplane1X != play1x && newAirplane1X+300 !=play1x) || (newAirplane1Y != play1y && newAirplane1Y != play1y+150))&&
 	        				((newAirplane1X != bike1x && newAirplane1X+300 !=bike1x) || (newAirplane1Y != bike1y && newAirplane1Y != bike1y+150))&&
 	        					((newAirplane1X != doll1x && newAirplane1X+300 !=doll1x) || (newAirplane1Y != doll1y && newAirplane1Y != doll1y+150))&&
-	        						(newAirplane1X < horseX || newAirplane1X >= horseX + horse.getWidth(null) || newAirplane1Y != horseY)){
+	        						(newAirplane1X < horseX || newAirplane1X >= horseX + horse.getWidth(null) || newAirplane1Y != horseY)&&
+		        						((newAirplane1X != rock1x && newAirplane1X+300 !=rock1x) || (newAirplane1Y != rock1y && newAirplane1Y != rock1y+150))){
             	airplane1x = newAirplane1X;
             }
         }
@@ -273,7 +286,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
         				((newAirplane1X != play1x && newAirplane1X+300 !=play1x) || (newAirplane1Y != play1y && newAirplane1Y != play1y+150))&&
 	        				((newAirplane1X != bike1x && newAirplane1X+300 !=bike1x) || (newAirplane1Y != bike1y && newAirplane1Y != bike1y+150))&&
 	        					((newAirplane1X != doll1x && newAirplane1X+300 !=doll1x) || (newAirplane1Y != doll1y && newAirplane1Y != doll1y+150))&&
-	        						(newAirplane1X < horseX || newAirplane1X >= horseX + horse.getWidth(null) || newAirplane1Y != horseY)){
+	        						(newAirplane1X < horseX || newAirplane1X >= horseX + horse.getWidth(null) || newAirplane1Y != horseY)&&
+	        							((newAirplane1X != rock1x && newAirplane1X+300 !=rock1x) || (newAirplane1Y != rock1y && newAirplane1Y != rock1y+150))){
             	airplane1y = newAirplane1Y;
             }
         }
@@ -290,7 +304,7 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	                		((newToy1X != doll1x && newToy1X+300 !=doll1x) || (newToy1Y != doll1y && newToy1Y != doll1y+150))&&
 	                			((newToy1X != play1x && newToy1X+300 !=play1x) || (newToy1Y != play1y && newToy1Y != play1y+150))&&
 	                				(newToy1X < horseX || newToy1X >= horseX + horse.getWidth(null) || newToy1Y != horseY)&&
-	    								((newToy1X != bike1x && newToy1X+300 !=bike1x) || (newToy1Y != bike1y && newToy1Y != bike1y+150))&&
+	    								((newToy1X != rock1x && newToy1X+300 !=rock1x) || (newToy1Y != rock1y && newToy1Y != rock1y+150))&&
 	    									(newToy1X+300 !=bike1x)){
         		toy1x=newToy1X;
             }
@@ -303,7 +317,7 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
 	                		((newToy1X != doll1x && newToy1X+300 !=doll1x) || (newToy1Y != doll1y && newToy1Y != doll1y+150))&&
 	                			((newToy1X != play1x && newToy1X+300 !=play1x) || (newToy1Y != play1y && newToy1Y != play1y+150))&&
 	                				(newToy1X < horseX || newToy1X >= horseX + horse.getWidth(null) || newToy1Y != horseY)&&
-	    								((newToy1X != bike1x && newToy1X+300 !=bike1x) || (newToy1Y != bike1y && newToy1Y != bike1y+150))&&
+	    								((newToy1X != rock1x && newToy1X+300 !=rock1x) || (newToy1Y != rock1y && newToy1Y != rock1y+150))&&
     										(newToy1X+300 !=bike1x)){
         		toy1y=newToy1Y;
             }
@@ -346,7 +360,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     	((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
             				((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)&&
             					(newLadder1X!=train1x ||(newLadder1Y!=train1y && newLadder1Y+150!=train1y))&&
-            						(newLadder1X!=play1x ||newLadder1Y!=play1y+150)){
+            						(newLadder1X!=play1x ||newLadder1Y!=play1y+150)&&
+            							((newLadder1X != insect1x && newLadder1X != insect1x+150)|| newLadder1Y != insect1y )){
             	ladder1x = newLadder1X;
             }
         }
@@ -357,7 +372,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     	((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
                     		((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)&&
         						(newLadder1X!=train1x ||(newLadder1Y!=train1y && newLadder1Y+150!=train1y))&&
-        						(newLadder1X!=play1x ||newLadder1Y!=play1y+150)){
+        						(newLadder1X!=play1x ||newLadder1Y!=play1y+150)&&
+    								((newLadder1X != insect1x && newLadder1X != insect1x+150)|| newLadder1Y != insect1y )){
             	ladder1y = newLadder1Y;
             }
         }
@@ -374,7 +390,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     (newDoll1X < horseX || newDoll1X >= horseX + horse.getWidth(null) || newDoll1Y != horseY) &&
                     	((newDoll1X != airplane1x && newDoll1X != airplane1x+150 && newDoll1X != airplane1x+300)|| (newDoll1Y != airplane1y&&newDoll1Y+150 != airplane1y )) &&
             				((newDoll1X != toy1x && newDoll1X != toy1x+150 &&newDoll1X != toy1x+300)|| newDoll1Y != toy1y)&&
-            					(newDoll1X!=bike1x||(newDoll1Y!=bike1y&&newDoll1Y+150!=bike1y))){
+            					(newDoll1X!=bike1x||(newDoll1Y!=bike1y&&newDoll1Y+150!=bike1y)) &&
+                            		((newDoll1X != insect1x && newDoll1X != insect1x+150)|| (newDoll1Y != insect1y&&newDoll1Y+150 != insect1y ))){
             	doll1x = newDoll1X;
             }
         }
@@ -384,7 +401,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     (newDoll1X < horseX || newDoll1X >= horseX + horse.getWidth(null) || newDoll1Y != horseY) &&
                     	((newDoll1X != airplane1x && newDoll1X != airplane1x+150 && newDoll1X != airplane1x+300)|| (newDoll1Y != airplane1y&&newDoll1Y+150 != airplane1y )) &&
             				((newDoll1X != toy1x && newDoll1X != toy1x+150 &&newDoll1X != toy1x+300)|| newDoll1Y != toy1y)&&
-            					(newDoll1X!=bike1x||(newDoll1Y!=bike1y&&newDoll1Y+150!=bike1y))){
+            					(newDoll1X!=bike1x||(newDoll1Y!=bike1y&&newDoll1Y+150!=bike1y))&&
+                        			((newDoll1X != insect1x && newDoll1X != insect1x+150)|| (newDoll1Y != insect1y&&newDoll1Y+150 != insect1y ))){
             	doll1y = newDoll1Y;
             }
         }
@@ -401,7 +419,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     (newBike1X < horseX || newBike1X >= horseX + horse.getWidth(null) || newBike1Y != horseY) &&
                     	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y )) &&
             				((newBike1X != toy1x && newBike1X != toy1x+150 &&newBike1X != toy1x+300)|| newBike1Y != toy1y)&&
-        						(newBike1Y-150!=doll1y)){
+        						(newBike1Y-150!=doll1y)&&
+                    				((newBike1X != insect1x && newBike1X != insect1x+150)|| (newBike1Y != insect1y&&newBike1Y+150 != insect1y ))){
             	bike1x = newBike1X;
             }
         }
@@ -411,7 +430,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     (newBike1X < horseX || newBike1X >= horseX + horse.getWidth(null) || newBike1Y != horseY) &&
                     	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y )) &&
                     		((newBike1X != toy1x && newBike1X != toy1x+150 &&newBike1X != toy1x+300)|| newBike1Y != toy1y)&&
-    							(newBike1Y-150!=doll1y)){
+    							(newBike1Y-150!=doll1y)&&
+                					((newBike1X != insect1x && newBike1X != insect1x+150)|| (newBike1Y != insect1y&&newBike1Y+150 != insect1y ))){
             	bike1y = newBike1Y;
             }
         }
@@ -428,25 +448,85 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 			((newCraft1X != doll1x && newCraft1X+150!=doll1x) || (newCraft1Y != doll1y && newCraft1Y != doll1y+150))&&
                 				((newCraft1X != bike1x && newCraft1X+150!=bike1x) || (newCraft1Y != bike1y && newCraft1Y != bike1y+150))&&
                 					((newCraft1X != horseX && newCraft1X+150 !=horseX)|| newCraft1Y != horseY )&&
-                						(newCraft1X !=toy1x+300)){
+                						(newCraft1X !=toy1x+300)&&
+                	                		((newCraft1X != rock1x && newCraft1X+150 !=rock1x) || (newCraft1Y != rock1y && newCraft1Y != rock1y+150))){
                 aircraft1x = newCraft1X;
             }
         }
 
 
-        if (newCraft1X >= 750 && newCraft1Y + aircraft1.getHeight(null) <= getHeight()) {
+        if (newCraft1Y >= 75 && newCraft1Y + aircraft1.getHeight(null) <= getHeight()) {
         	if (((newCraft1X != train1x && newCraft1X+150 !=train1x)|| newCraft1Y != train1y )&&
                 	((newCraft1X != play1x && newCraft1X+150 !=play1x) || (newCraft1Y != play1y && newCraft1Y != play1y+150))&&
                 		((newCraft1X != ladder1x && newCraft1X+150!=ladder1x) || (newCraft1Y != ladder1y && newCraft1Y != ladder1y+150))&&
                 			((newCraft1X != doll1x && newCraft1X+150!=doll1x) || (newCraft1Y != doll1y && newCraft1Y != doll1y+150))&&
                 				((newCraft1X != bike1x && newCraft1X+150!=bike1x) || (newCraft1Y != bike1y && newCraft1Y != bike1y+150))&&
-                					((newCraft1X != horseX && newCraft1X+150 !=horseX)|| newCraft1Y != horseY )){
+                					((newCraft1X != horseX && newCraft1X+150 !=horseX)|| newCraft1Y != horseY )&&
+            							(newCraft1X !=toy1x+300)&&
+            								((newCraft1X != rock1x && newCraft1X+150 !=rock1x) || (newCraft1Y != rock1y && newCraft1Y != rock1y+150))){
                 aircraft1y = newCraft1Y;
             }
         }
         repaint();
 
+
+    }
+    public void moveRock(int dx, int dy) {
+        int newRock1X = rock1x + dx;
+        int newRock1Y = rock1y + dy;
+        
+        if (newRock1X>= 150 && newRock1X + rock1.getWidth(null) <= getWidth()-150) {
+            if (((newRock1X != bus1x && newRock1X != bus1x+150)|| newRock1Y != bus1y ) &&
+                    (newRock1X < horseX || newRock1X >= horseX + horse.getWidth(null) || newRock1Y != horseY) &&
+                    	((newRock1X != airplane1x && newRock1X != airplane1x+150 && newRock1X != airplane1x+300)|| (newRock1Y != airplane1y&&newRock1Y+150 != airplane1y ))&&
+                    	((newRock1X != aircraft1x && newRock1X != aircraft1x+150)|| (newRock1Y != aircraft1y && newRock1Y+150 != aircraft1y))&&
+             			((newRock1X != insect1x && newRock1X != insect1x+150)||(newRock1Y != insect1y && newRock1Y+150 != insect1y))
+                    	){
+            	rock1x = newRock1X;
+            }
+        }
+
+        if (newRock1Y>= 75 && newRock1Y + rock1.getHeight(null) <= getHeight()) {
+        	 if (((newRock1X != bus1x && newRock1X != bus1x+150)|| newRock1Y != bus1y ) &&
+                     (newRock1X < horseX || newRock1X >= horseX + horse.getWidth(null) || newRock1Y != horseY) &&
+                     	((newRock1X != airplane1x && newRock1X != airplane1x+150 && newRock1X != airplane1x+300)|| (newRock1Y != airplane1y&&newRock1Y+150 != airplane1y ))&&
+                     		((newRock1X != aircraft1x && newRock1X != aircraft1x+150)|| (newRock1Y != aircraft1y && newRock1Y+150 != aircraft1y))&&
+                     			((newRock1X != insect1x && newRock1X != insect1x+150)||(newRock1Y != insect1y && newRock1Y+150 != insect1y))
+                     	){
+            	rock1y = newRock1Y;
+            }
+        }
+
         repaint();
+    }
+    public void moveinsect(int dx, int dy) {
+        int newInsect1X = insect1x + dx;
+        int newInsect1Y = insect1y + dy;
+        if (newInsect1X >= 150 && newInsect1X + insect1.getWidth(null) <= getWidth()-150) {
+            if (((newInsect1X != train1x && newInsect1X+150 !=train1x)|| newInsect1Y != train1y )&&
+                		((newInsect1X != ladder1x && newInsect1X+150!=ladder1x) || (newInsect1Y != ladder1y && newInsect1Y != ladder1y+150))&&
+                			((newInsect1X != doll1x && newInsect1X+150!=doll1x) || (newInsect1Y != doll1y && newInsect1Y != doll1y+150))&&
+                				((newInsect1X != bike1x && newInsect1X+150!=bike1x) || (newInsect1Y != bike1y && newInsect1Y != bike1y+150))&&
+                					((newInsect1X != horseX && newInsect1X+150 !=horseX)|| newInsect1Y != horseY )&&
+                	                	((newInsect1X != rock1x && newInsect1X+150 !=rock1x) || (newInsect1Y != rock1y && newInsect1Y != rock1y+150))){
+                insect1x = newInsect1X;
+            }
+        }
+
+
+        if (newInsect1Y >= 75 && newInsect1Y + insect1.getHeight(null) <= getHeight()) {
+        	if (((newInsect1X != train1x && newInsect1X+150 !=train1x)|| newInsect1Y != train1y )&&
+            		((newInsect1X != ladder1x && newInsect1X+150!=ladder1x) || (newInsect1Y != ladder1y && newInsect1Y != ladder1y+150))&&
+            			((newInsect1X != doll1x && newInsect1X+150!=doll1x) || (newInsect1Y != doll1y && newInsect1Y != doll1y+150))&&
+            				((newInsect1X != bike1x && newInsect1X+150!=bike1x) || (newInsect1Y != bike1y && newInsect1Y != bike1y+150))&&
+            					((newInsect1X != horseX && newInsect1X+150 !=horseX)|| newInsect1Y != horseY )&&
+            	                	((newInsect1X != rock1x && newInsect1X+150 !=rock1x) || (newInsect1Y != rock1y && newInsect1Y != rock1y+150))){
+                insect1y = newInsect1Y;
+            }
+        }
+        repaint();
+
+
     }
     @Override
     public void keyPressed(KeyEvent e) {
@@ -480,6 +560,10 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     movecraft(-stepSize,0);
                     effect c=new effect("space");
                     c.play();
+                }else if (isInsect1Cliked) {
+                    moveinsect(-stepSize,0);
+                    effect c=new effect("insect");
+                    c.play();
                 }
                 
                 cnt++;
@@ -506,6 +590,10 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 }else if (isCraft1Cliked) {
                     movecraft(stepSize,0);
                     effect c=new effect("space");
+                    c.play();
+                }else if (isInsect1Cliked) {
+                    moveinsect(stepSize,0);
+                    effect c=new effect("insect");
                     c.play();
                 }
                 
@@ -542,6 +630,11 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     effect b=new effect("bike");
                     b.play();
                 }
+                else if (isRock1Cliked) {
+                    moveRock(0, -stepSize);
+                    effect r=new effect("rock");
+                    r.play();
+                }
                 cnt++;
                 break;
             case KeyEvent.VK_DOWN:
@@ -572,7 +665,12 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                     moveBike(0, stepSize);
                     effect b=new effect("bike");
                     b.play();
+                }else if (isRock1Cliked) {
+                    moveRock(0, stepSize);
+                    effect r=new effect("rock");
+                    r.play();
                 }
+
                 cnt++;
                 break;
             case KeyEvent.VK_W:
@@ -587,11 +685,12 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_Q:
             	
                 isHorseClicked = true;
-                
                 isBus1Clicked = false;
                 isTrain1Cliked=false;
                 isAirplane1Cliked=false;
@@ -601,6 +700,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_E:
                 isHorseClicked = false;
@@ -613,6 +714,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_S:
                 isHorseClicked = false;
@@ -625,6 +728,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_R:
                 isHorseClicked = false;
@@ -637,6 +742,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_A:
                 isHorseClicked = false;
@@ -649,6 +756,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_F:
                 isHorseClicked = false;
@@ -661,6 +770,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_D:
                 isHorseClicked = false;
@@ -673,6 +784,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = true;
                 isCraft1Cliked = false;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_Z:
                 isHorseClicked = false;
@@ -685,6 +798,8 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = true;
                 isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
             case KeyEvent.VK_X:
                 isHorseClicked = false;
@@ -697,7 +812,38 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
                 isDoll1Cliked = false;
                 isCraft1Cliked = false;
                 isBike1Cliked=true;
+                isInsect1Cliked=false;
+                isRock1Cliked=false;
                 break;
+            case KeyEvent.VK_C:
+                isHorseClicked = false;
+                isBus1Clicked = false;
+                isTrain1Cliked=false;
+                isAirplane1Cliked=false;
+                isToy1Cliked=false;
+                isPlay1Cliked=false;
+                isLadder1Cliked=false;
+                isDoll1Cliked = false;
+                isCraft1Cliked = false;
+                isBike1Cliked=false;
+                isInsect1Cliked=false;
+                isRock1Cliked=true;
+                break;
+            case KeyEvent.VK_V:
+                isHorseClicked = false;
+                isBus1Clicked = false;
+                isTrain1Cliked=false;
+                isAirplane1Cliked=false;
+                isToy1Cliked=false;
+                isPlay1Cliked=false;
+                isLadder1Cliked=false;
+                isDoll1Cliked = false;
+                isCraft1Cliked = false;
+                isBike1Cliked=false;
+                isInsect1Cliked=true;
+                isRock1Cliked=false;
+                break;
+                
         }
     }
 
