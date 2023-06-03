@@ -12,12 +12,13 @@ import java.security.PublicKey;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
 
 
 public class firstpage extends JFrame{
-	private Image background=new ImageIcon(firstpage.class.getResource("/img/Rush.png")).getImage();
-	
+	private JLabel back;
+	bgm first=new bgm("first", true);
 	public firstpage() {
 		setTitle("Rush Hour");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,14 +40,15 @@ public class firstpage extends JFrame{
 		
 		
 		
-		start.setBounds(525, 400, 140, 70);
+		start.setBounds(525, 460, 140, 70);
 		
-		exit.setBounds(525, 550, 140, 70);
+		exit.setBounds(525, 610, 140, 70);
 		
 		start.addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						first.close();
 						effect b=new effect("button");
 						b.play();
 						Stage stage=new Stage();
@@ -70,16 +72,17 @@ public class firstpage extends JFrame{
 		c.add(exit);
 		c.add(start);
 		
-		
+		back = new JLabel(new ImageIcon(Stage.class.getResource("/img/Rush.png")));
+        back.setBounds(0, 0, 1200, 900);
+        c.add(back);
 		
 		//setLocationRelativeTo(null);
 		setLayout(null);
 		setSize(1200,900);
 		setVisible(true);
+		first.start();
 		}
-	public void  paint(Graphics g) {
-		g.drawImage(background,0,0,null);
-	}
+	
 	public static void main(String[] args) {
 		new firstpage();
 		

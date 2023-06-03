@@ -36,6 +36,8 @@ public class result1 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				dispose();
+				effect next=new effect("button");
+				next.play();
 				new Stage2();
 				
 				}
@@ -51,6 +53,6 @@ public class result1 extends JFrame {
     }
 
     public static void main(String[] args) {
-        new result1(0, 0);
+        
     }
 }

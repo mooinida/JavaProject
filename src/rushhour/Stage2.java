@@ -67,7 +67,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
         setVisible(true);
         addKeyListener(this);
         setFocusable(true);
-        music=new bgm("배경",true);
+        music=new bgm("배경1",true);
         music.start();
         panel = new JPanel() {
             protected void paintComponent(Graphics g) {
@@ -103,7 +103,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
 
         if (newHorseX >= 150 && newHorseX + horse.getWidth(null) <= getWidth() - 150) {
         	if(((newHorseX!=bus1x && newHorseX!=bus1x+150)||newHorseY!=bus1y)&&
-        			((newHorseX!=aircraft1x && newHorseX!=aircraft1x+150)||newHorseY!=aircraft1x)&&
+        			((newHorseX!=aircraft1x && newHorseX!=aircraft1x+150)||newHorseY!=aircraft1y)&&
 	        			(newHorseX!=train1x ||newHorseY!=train1y)&&
 	        				((newHorseX!=toy1x && newHorseX!=toy1x+150 && newHorseX!=toy1x+300)||newHorseY!=toy1y)&&
 	        					((newHorseX!=airplane1x && newHorseX!=airplane1x+150 && newHorseX!=airplane1x+300)||newHorseY!=airplane1y)&&
@@ -119,7 +119,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
 
         if (newHorseY >= 75 && newHorseY + horse.getHeight(null) <= getHeight()) {
         	if(((newHorseX!=bus1x && newHorseX!=bus1x+150)||newHorseY!=bus1y)&&
-        			((newHorseX!=aircraft1x && newHorseX!=aircraft1x+150)||newHorseY!=aircraft1x)&&
+        			((newHorseX!=aircraft1x && newHorseX!=aircraft1x+150)||newHorseY!=aircraft1y)&&
 	        			(newHorseX!=train1x ||newHorseY!=train1y)&&
 	        				((newHorseX!=toy1x && newHorseX!=toy1x+150 && newHorseX!=toy1x+300)||newHorseY!=toy1y)&&
 	        					((newHorseX!=airplane1x && newHorseX!=airplane1x+150 && newHorseX!=airplane1x+300)||newHorseY!=airplane1y)&&
@@ -153,7 +153,7 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
                     setVisible(false);
                     ha.setVisible(false);
                     
-                    success1 s = new success1();
+                    success2 s = new success2();
                     
                     Timer t=new Timer();
             		TimerTask task=new TimerTask() {
@@ -341,8 +341,9 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
         if (newLadder1X>= 150 && newLadder1X + ladder1.getWidth(null) <= getWidth()-150) {
             if (((newLadder1X != bus1x && newLadder1X != bus1x+150)|| newLadder1Y != bus1y ) &&
                     (newLadder1X < horseX || newLadder1X >= horseX + horse.getWidth(null) || newLadder1Y != horseY) &&
-                    ((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
-            		((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)){
+                    	((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
+            				((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)&&
+            					(newLadder1X!=train1x ||(newLadder1Y!=train1y && newLadder1Y+150!=train1y))){
             	ladder1x = newLadder1X;
             }
         }
@@ -350,8 +351,9 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
         if (newLadder1Y>= 75 && newLadder1Y +ladder1.getHeight(null) <= getHeight()) {
         	if (((newLadder1X != bus1x && newLadder1X != bus1x+150)|| newLadder1Y != bus1y ) &&
                     (newLadder1X < horseX || newLadder1X >= horseX + horse.getWidth(null) || newLadder1Y != horseY) &&
-                    ((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
-            		((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)){
+                    	((newLadder1X != airplane1x && newLadder1X != airplane1x+150 && newLadder1X != airplane1x+300)|| (newLadder1Y != airplane1y&&newLadder1Y+150 != airplane1y )) &&
+                    		((newLadder1X != toy1x && newLadder1X != toy1x+150 &&newLadder1X != toy1x+300)|| newLadder1Y != toy1y)&&
+        						(newLadder1X!=train1x ||(newLadder1Y!=train1y && newLadder1Y+150!=train1y))){
             	ladder1y = newLadder1Y;
             }
         }
@@ -524,9 +526,11 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
                 	effect r=new effect("robot");
                     r.play();
                 }else if (isHorseClicked) {
-                    moveHorse(0,-stepSize);
-                    effect h=new effect("run");
-                    h.play();
+                	if(horseX>0) {
+                     	moveHorse(0,-stepSize);
+                         effect h=new effect("run");
+                         h.play();
+                     }
                 }
                 else if (isBike1Cliked) {
                     moveBike(0, -stepSize);
@@ -554,9 +558,11 @@ public class Stage2 extends visual2 implements KeyListener, MouseListener, Mouse
                 	effect r=new effect("robot");
                     r.play();
                 }else if (isHorseClicked) {
-                    moveHorse(0,stepSize);
-                    effect h=new effect("run");
-                    h.play();
+                	if(horseX>0) {
+                     	moveHorse(0,stepSize);
+                         effect h=new effect("run");
+                         h.play();
+                     }
                 }else if (isBike1Cliked) {
                     moveBike(0, stepSize);
                     effect b=new effect("bike");
