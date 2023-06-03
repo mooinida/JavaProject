@@ -34,7 +34,7 @@ public class visual2 extends JFrame{
 	}
 
 	public static void main(String[] args) {
-		new Stage2(); 
+		 
 
 	}
 
