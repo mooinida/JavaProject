@@ -70,7 +70,21 @@ public class Stage extends JFrame {
                 dispose();
             }
         });
+        
+        s3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                st.close();
+                effect b = new effect("button");
+                b.play();
+                Stage3 s3 = new Stage3();
+                howtoplay3 h = new howtoplay3();
+                s3.setVisible(true);
 
+                setVisible(false);
+                dispose();
+            }
+        });
         c.add(s1);
         c.add(s2);
         c.add(s3);
