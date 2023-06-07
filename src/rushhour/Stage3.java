@@ -414,26 +414,24 @@ public class Stage3 extends visual3 implements KeyListener, MouseListener, Mouse
         int newBike1X = bike1x + dx;
         int newBike1Y = bike1y + dy;
         
-        if (newBike1X>= 150 && newBike1X + bike1.getWidth(null) <= getWidth()-150) {
-            if (((newBike1X != bus1x && newBike1X != bus1x+150)|| newBike1Y != bus1y ) &&
+        if (newBike1X>= 150 && newBike1X + bike1.getWidth(null) <= getWidth()-150)  {
+            if (((newBike1X != bus1x && newBike1X != bus1x+150)||(newBike1Y != bus1y && newBike1Y+150 != bus1y )) &&
                     (newBike1X < horseX || newBike1X >= horseX + horse.getWidth(null) || newBike1Y != horseY) &&
-                    	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y )) &&
-            				((newBike1X != toy1x && newBike1X != toy1x+150 &&newBike1X != toy1x+300)|| newBike1Y != toy1y)&&
-        						(newBike1Y-150!=doll1y)&&
-                    				((newBike1X != insect1x && newBike1X != insect1x+150)|| (newBike1Y != insect1y&&newBike1Y+150 != insect1y ))&&
-                    					((newBike1X != aircraft1x && newBike1X != aircraft1x+150)|| (newBike1Y != aircraft1y&&newBike1Y+150 != aircraft1y ))){
+                    	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y ))&&
+                    	((newBike1X != aircraft1x && newBike1X != aircraft1x+150)|| (newBike1Y != aircraft1y && newBike1Y+150 != aircraft1y))&&
+             			((newBike1X != insect1x && newBike1X != insect1x+150)||(newBike1Y != insect1y && newBike1Y+150 != insect1y))
+                    	){
             	bike1x = newBike1X;
             }
         }
 
-        if (newBike1Y>= 75 && newBike1Y + bike1.getHeight(null) <= getHeight()) {
-            if (((newBike1X != bus1x && newBike1X != bus1x+150)|| newBike1Y != bus1y ) &&
+        if (newBike1Y>= 75 && newBike1Y + bike1.getHeight(null) <= getHeight()){
+            if (((newBike1X != bus1x && newBike1X != bus1x+150)||(newBike1Y != bus1y && newBike1Y+150 != bus1y )) &&
                     (newBike1X < horseX || newBike1X >= horseX + horse.getWidth(null) || newBike1Y != horseY) &&
-                    	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y )) &&
-                    		((newBike1X != toy1x && newBike1X != toy1x+150 &&newBike1X != toy1x+300)|| newBike1Y != toy1y)&&
-    							(newBike1Y-150!=doll1y)&&
-                					((newBike1X != insect1x && newBike1X != insect1x+150)|| (newBike1Y != insect1y&&newBike1Y+150 != insect1y ))&&
-                						((newBike1X != aircraft1x && newBike1X != aircraft1x+150)|| (newBike1Y != aircraft1y&&newBike1Y+150 != aircraft1y ))){
+                    	((newBike1X != airplane1x && newBike1X != airplane1x+150 && newBike1X != airplane1x+300)|| (newBike1Y != airplane1y&&newBike1Y+150 != airplane1y ))&&
+                    	((newBike1X != aircraft1x && newBike1X != aircraft1x+150)|| (newBike1Y != aircraft1y && newBike1Y+150 != aircraft1y))&&
+             			((newBike1X != insect1x && newBike1X != insect1x+150)||(newBike1Y != insect1y && newBike1Y+150 != insect1y))
+                    	){
             	bike1y = newBike1Y;
             }
         }
